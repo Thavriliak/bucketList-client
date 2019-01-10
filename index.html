@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>#SSS</title>
+  <title>bucketList</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Do not add `link` tags-->
@@ -26,18 +26,18 @@
 </header>
 
 <!-- Nav Buttons -->
-<nav class=>
-  <button type="button" id="sign-up-btn" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">Sign
+<nav class="topHead">
+  <button type="button" id="sign-up-btn" class="btn btn-dark" data-toggle="modal" data-target="#signUpModal">Sign
     Up</span></button>
-  <button type="button" id="sign-in-btn" class="btn btn-primary" data-toggle="modal" data-target="#signInModal">Sign
+  <button type="button" id="sign-in-btn" class="btn btn-dark" data-toggle="modal" data-target="#signInModal">Sign
     In</span></button>
-  <button type="button" id="sign-out-btn" class="btn btn-primary" data-toggle="modal" data-target="#signOutModal">Sign
+  <button type="button" id="sign-out-btn" class="btn btn-dark" data-toggle="modal" data-target="#signOutModal">Sign
     Out</span></button>
-  <button type="button" id="password-btn" class="btn btn-primary" data-toggle="modal" data-target="#changePasswordModal">Change
+  <button type="button" id="password-btn" class="btn btn-dark" data-toggle="modal" data-target="#changePasswordModal">Change
     Password</span></button>
-    <button type="button" id="showModal" class="btn btn-primary" data-toggle="modal" data-target="#showButtonModal">Show My Bucket
+    <button type="button" id="showModal" class="btn btn-dark" data-toggle="modal" data-target="#showButtonModal">Show My Bucket
     List</span></button>
-    <button type="button" id="showEditModal" class="btn btn-primary" data-toggle="modal" data-target="#showEditButtonModal">Edit
+    <button type="button" id="showEditModal" class="btn btn-dark" data-toggle="modal" data-target="#showEditButtonModal">Edit
       My Bucket List</span></button>
 
       <!-- Sign up Button -->
@@ -56,15 +56,15 @@
               <input class="form-control" type='text' name='credentials[email]' placeholder='Email' />
               <input class="form-control" type='password' name='credentials[password]' placeholder='Password' />
               <input class="form-control" type='password' name='credentials[password_confirmation]' placeholder='Confirm Password' />
-              <button type="submit" class="btn btn-primary" name="submit" value="Sign Up">Sign Up</button>
+              <button type="submit" class="btn btn-dark" name="submit" value="Sign Up">Sign Up</button>
           </fieldset>
             
           </form>
           <p id='message'></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
-          <button type="button" class="btn btn-primary" id="sign-up">SAVE</button>
+          <button type="button" class="btn btn-dark" data-dismiss="modal">CLOSE</button>
+          <button type="button" class="btn btn-dark" id="sign-up">SAVE</button>
         </div>
       </div>
     </div>
@@ -94,7 +94,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+          <button type="button" class="btn btn-dark" data-dismiss="modal">CLOSE</button>
         </div>
       </div>
     </div>
@@ -119,14 +119,14 @@
                 <div class='borderThree-content' id='exampleThree'>
                   <input class="form-control" type="password" name="passwords[old]" placeholder="Old Password" />
                   <input class="form-control" type="password" name="passwords[new]" placeholder="New Password" />
-                  <button type="submit" class="btn btn-primary" name="submit" value="Change Password">Change Password</button>
+                  <button type="submit" class="btn btn-dark" name="submit" value="Change Password">Change Password</button>
                 </div>
               </fieldset>
             </form>
             <p id='message4'></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+          <button type="button" class="btn btn-dark" data-dismiss="modal">CLOSE</button>
         </div>
       </div>
     </div>
@@ -151,7 +151,7 @@
           <p id='message3'></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+          <button type="button" class="btn btn-dark" data-dismiss="modal">CLOSE</button>
         </div>
       </div>
     </div>
@@ -174,12 +174,12 @@
              <form id="bucket-list-index">
                <div id="output"></div>
                <!-- <fieldset> -->
-               <input type="submit" class="btn btn-primary" value="Show My Bucket List" id="showButton">
+               <input type="submit" class="btn btn-dark" value="Show My Bucket List" id="showButton">
                <!-- </fieldset> -->
              </form>
 
              <div class="modal-footer">
-                 <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+                 <button type="button" class="btn btn-dark" data-dismiss="modal">CLOSE</button>
                </div>
              </div>
            </div>
@@ -254,17 +254,13 @@
    </div>
  </div>
 </nav>
-<!-- column -->
-<div class="column2">
-  <p>Hey hey hey</p>
-</div>
   <!-- GEO Map Locator -->
 <div class="column map">
   <form>
     <div class="whereYouGo">
       <p class="latNLong">
         <span>Mark where you want to go!</span><br>
-        <span><label for="latitude">Latitude:</label><input id="latitude" type="text" /></span><br>
+        <span><label for="latitude">Latitude:</label><input id="latitude" type="text" /></span>
         <span><label for="longitude">Longitude:</label><input id="longitude" type="text" /></span>
       </p>
     </div>
@@ -272,17 +268,35 @@
   <div id="mapid"></div>
   <div class="mapExplain">
     <p class="art">Choose where you want to go. Whether you've always dreamed of climbing the mountains
-      of Nepal, or wanted to sink your toes into the beaches of Bali, the first step is 
-      always mapping it out. Search the world for your next dream bucketList location!
+      of <span class="emph">Nepal</span>, or wanted to sink your toes into the beaches of <span class="emph">Bali</span>, the first step is 
+      always <span class="emph">mapping it out</span>. Search the world for your next dream bucketList location!
     </p>
   </div>
 </div>
+<div class="column2">
+  <section class="fullBody">
+    <article>
+      <div class="opening bullet">
+        <p> Snow Castle is a user friendly application for local snowboard and ski shops
+          to properly and efficiently store their inventory. Whether you own a chain of
+          different stores, or you own one local independent shop, everyone can benefit
+          from the ease of the inventory integration of Snow Castle!
+      </div>
+    </article>
+      <nav class="flexNav">
+        <button class="home link">Go to homepage</button>
+        <button class="addEvent link">Add an event to your bucketList</button>
+        <button class="editEvent link">Edit a bucketList event</button>
+        <button class="deleteEvent link">Delete a bucketList event</button>
+        <button class="searchEvent link">Search for a bucketList event</button>
+      </nav>
+  </section>
+</div>
 <div class="column3">
-  <p>Wadupppp</p>
+  <p>Inspirational BS</p>
 </div>
 <footer>
   <p>&copy; #Sleepy Squirrel Squad ! (all rights reserved)</p>
 </footer>
-
-  </body>
+</body>
 </html>
