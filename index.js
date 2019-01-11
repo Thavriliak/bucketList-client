@@ -70,3 +70,24 @@ function updateLatLng(lat, lng, reverse) {
     map.panTo([lat, lng])
   }
 }
+
+// Getting certain CRUD actions to appear in the div
+$('.addEvent').click(function () {
+  $('.bullet').hide()
+  $('.addBl').show()
+})
+
+$('.editEvent').click(function () {
+  $('.bullet').hide()
+  $('.editBl').show()
+})
+
+$('.deleteEvent').click(function () {
+  $('.bullet').hide()
+  $('.deleteBl').show()
+})
+
+$('.home').click(function () {
+  $('.bullet').hide()
+  $('.opening').show()
+})
