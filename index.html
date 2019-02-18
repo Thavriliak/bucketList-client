@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>bucketList</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+  integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+  crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
+  <!-- Do not add `script` tags -->
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+  integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+  crossorigin=""></script>
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+<body>
+
+<header class="title">
+  <h1>bucketList</h1>
+  <h3>Attack your Future</h3>
+</header>
+
+<!-- Nav Buttons -->
+<nav class="topHead">
+  <button type="button" id="sign-up-btn" class="btn btn-dark" data-toggle="modal" data-target="#signUpModal">Sign
+    Up</span></button>
+  <button type="button" id="sign-in-btn" class="btn btn-dark" data-toggle="modal" data-target="#signInModal">Sign
+    In</span></button>
+  <button type="button" id="sign-out-btn" class="btn btn-dark" data-toggle="modal" data-target="#signOutModal">Sign
+    Out</span></button>
+  <button type="button" id="password-btn" class="btn btn-dark" data-toggle="modal" data-target="#changePasswordModal">Change
+    Password</span></button>
+    <button type="button" id="showModal" class="btn btn-dark" data-toggle="modal" data-target="#showButtonModal">Show My Bucket
+    List</span></button>
+    <!-- <button type="button" id="showEditModal" class="btn btn-dark" data-toggle="modal" data-target="#showEditButtonModal">Edit
+      My Bucket List</span></button> -->
+
+      <!-- Sign up Button -->
+<div>
+  <div class="modal fade" id="signUpModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+        </div>
+        <div class="modal-body">
+          <form id='sign-up-form'>
+
+            <fieldset>
+              <legend>Sign Up</legend>
+              <input class="form-control" type='text' name='credentials[email]' placeholder='Email' />
+              <input class="form-control" type='password' name='credentials[password]' placeholder='Password' />
+              <input class="form-control" type='password' name='credentials[password_confirmation]' placeholder='Confirm Password' />
+              <button type="submit" class="btn btn-dark" name="submit" value="Sign Up">Sign Up</button>
+          </fieldset>
+            
+          </form>
+          <p id='message'></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">CLOSE</button>
+          <button type="button" class="btn btn-dark" id="sign-up">SAVE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Sign in Button -->
+<div>
+  <div class="modal fade" id="signInModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+        </div>
+        <div class="modal-body">
+          <div>
+            <a class='borderTwo' href='#exampleTwo'></a>
+          </div>
+          <div class='borderTwo-content' id='exampleTwo'>
+            <form id='sign-in-form' class='borderOne'>
+              <div>
+                <input type='text' name='credentials[email]' placeholder='Email' />
+                <input type='password' name='credentials[password]' placeholder='Password' />
+                <input type='submit' id='sign-in' value='Sign In !' />
+              </div>
+            </form>
+            <p id='message2'></p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">CLOSE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Change Password -->
+<div>
+  <div class="modal fade" id="changePasswordModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+        </div>
+        <div class="modal-body">
+          <div>
+            <a class='borderThree' href='#exampleThree'></a>
+          </div>
+            <form id='change-password-form'>
+              <fieldset>
+                <legend>Change Password</legend>
+                <div class='borderThree-content' id='exampleThree'>
+                  <input class="form-control" type="password" name="passwords[old]" placeholder="Old Password" />
+                  <input class="form-control" type="password" name="passwords[new]" placeholder="New Password" />
+                  <button type="submit" class="btn btn-dark" name="submit" value="Change Password">Change Password</button>
+                </div>
+              </fieldset>
+            </form>
+            <p id='message4'></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">CLOSE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Sign out Button -->
+<div>
+  <div class="modal fade" id="signOutModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+        </div>
+        <div class="modal-body">
+          <form id='sign-out-form' class='border'>
+            <fieldset>
+            <div>
+              <input type="submit" value="Sign out" />
+            </div>
+          </fieldset>
+          </form>
+          <p id='message3'></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark" data-dismiss="modal">CLOSE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bucket Container Information -->
+ <div>
+   <div class="modal fade" id="showButtonModal">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <div class="modal-header">
+           <p id='message5'></p>
+           <h5 class="modal-title" id="exampleModalLabel"></h5>
+         </div>
+
+
+         <div class="form">
+           <div class="container">
+             <form id="bucket-list-index">
+               <div id="output"></div>
+               <!-- <fieldset> -->
+               <input type="submit" class="btn btn-dark" value="Show My Bucket List" id="showButton">
+               <!-- </fieldset> -->
+             </form>
+
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-dark" data-dismiss="modal">CLOSE</button>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+
+   <!-- <div class="modal fade" id="showEditButtonModal">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <div class="modal-header">
+           <p id='message6'></p>
+           <h5 class="modal-title" id="exampleModalLabel"></h5>
+         </div>
+
+         <div class="form">
+           <div class="container">
+             <-- <form id="bucket-list-index"> -->
+               <!-- <div id="output"></div> -->
+               <!-- <fieldset> -->
+               <!-- <input type="submit" class="btn btn-primary" value="EDIT My Bucket" id="showEditButton"> -->
+               <!-- </fieldset> -->
+             <!-- </form> -->
+
+             <!-- <h2 id="my-bucket-items" class="text-center"></h2> -->
+             <!-- <form id="bucket-list-create">
+               <-- <fieldset> -->
+               <!-- <input type="text" name="bucketList[title]" placeholder="Where do you want to go?" class="col - 8 mx-auto"
+                 id="title">
+               <br>
+               <input type="text" name="bucketList[subtitle]" placeholder="Extra details?" class="col - 8 mx-auto" id="subtitle">
+               <br>
+               <input type="text" name="bucketList[description]" placeholder="All the things you want to do there..."
+                 class="col - 8 mx-auto" id="description">
+               <br>
+               <input type="submit" class="btn btn-primary" value="Create a List Item" id="addTaskButton">
+               <-- </fieldset> -->
+             <!-- </form> -->
+
+             <!-- <form id="bucket-list-update">
+               <-- <fieldset> -->
+               <!-- <input type="text" name="bucketList[title]" placeholder="Change the Name of your List Item" class="col - 8 mx-auto"
+                 id="titleUpdate">
+               <br>
+               <input type="text" name="bucketList[subtitle]" placeholder="Change the Subtitle of your List Item"
+                 class="col - 8 mx-auto" id="subtitleUpdate">
+               <br>
+               <input type="text" name="bucketList[description]" placeholder="Change the details..." class="col - 8 mx-auto"
+                 id="descriptionUpdate">
+               <br>
+               <input type="text" name="bucketList[id]" placeholder="ID number" class="mx-auto" id="taskId">
+               <br>
+               <input type="submit" class="btn btn-primary" value="Update one Bucket List Item" id="updateTaskButton">
+               <-- </fieldset> -->
+             <!-- </form> --> 
+
+             <!-- <form id="bucket-list-delete"> -->
+               <!-- <fieldset> -->
+               <!-- <input type="text" name="bucketList[id]" placeholder="Bucket List ID" id="delete-task">
+               <br>
+               <input type="submit" class="btn btn-primary" value="Delete Bucket List Item" id="deleteButton"> -->
+               <!-- </fieldset> -->
+             <!-- </form> -->
+           <!-- </div>
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</nav> --> 
+  <!-- GEO Map Locator -->
+<div class="column map">
+  <form>
+    <div class="whereYouGo">
+      <p class="latNLong">
+        <span>Mark where you want to go!</span><br>
+        <span><label for="latitude">Latitude:</label><input id="latitude" type="text" /></span>
+        <span><label for="longitude">Longitude:</label><input id="longitude" type="text" /></span>
+      </p>
+    </div>
+  </form>
+  <div id="mapid"></div>
+  <div class="mapExplain">
+    <p class="art">Choose where you want to go. Whether you've always dreamed of climbing the mountains
+      of <span class="emph">Nepal</span>, or wanted to sink your toes into the beaches of <span class="emph">Bali</span>, the first step is 
+      always <span class="emph">mapping it out</span>. Search the world for your next dream bucketList location!
+    </p>
+  </div>
+</div>
+<div class="column2">
+  <section class="fullBody">
+    <article class="displayForms">
+    <div class="opening bullet">
+      <p> bucketList provides all you need to make sure you check off those <span class="emph">lifelong dreams</span> youve always 
+        had. With bucketList, those dreams become a reality! Keep track of all your entries, and follow through
+        so you can experience <span class="emph">all that life</span> has to offer. Life is short, but <span class="emph">memories last forever</span>.
+    </div>
+      <div class="addBl bullet hide crud">
+        <h3><span class="emph">Create</span> a bucketList event</h3>
+          <form id="bucket-list-create">
+            <input type="text" name="bucketList[title]" placeholder="Where do you want to go?" class="col - 8 mx-auto" id="title">
+            <br>
+            <input type="text" name="bucketList[subtitle]" placeholder="Extra details?" class="col - 8 mx-auto" id="subtitle">
+            <br>
+            <input type="text" name="bucketList[description]" placeholder="All the things you want to do there..." class="col - 8 mx-auto"
+            id="description">
+            <br>
+            <input type="submit" class="btn btn-primary" value="Create a List Item" id="addTaskButton">
+          </form>
+      </div>
+      <div class="editBl bullet hide crud">
+        <h3><span class="emph">Edit</span> a bucketList event</h3>
+          <form id="bucket-list-update">
+            <!-- <fieldset> -->
+            <input type="text" name="bucketList[title]" placeholder="Change the Name of your List Item" class="col - 8 mx-auto"
+              id="titleUpdate">
+            <br>
+            <input type="text" name="bucketList[subtitle]" placeholder="Change the Subtitle of your List Item" class="col - 8 mx-auto"
+              id="subtitleUpdate">
+            <br>
+            <input type="text" name="bucketList[description]" placeholder="Change the details..." class="col - 8 mx-auto" id="descriptionUpdate">
+            <br>
+            <input type="text" name="bucketList[id]" placeholder="ID number" class="mx-auto" id="taskId">
+            <br>
+            <input type="submit" class="btn btn-primary" value="Update one Bucket List Item" id="updateTaskButton">
+            <!-- </fieldset> -->
+          </form>
+      </div>
+      <div class="deleteBl bullet hide crud">
+        <h3><span class="emph">Delete</span> an Event from your bucketList</h3>
+          <form id="bucket-list-delete">
+            <!-- <fieldset> -->
+            <input type="text" name="bucketList[id]" placeholder="Bucket List ID" id="delete-task">
+            <br>
+            <input type="submit" class="btn btn-primary" value="Delete Bucket List Item" id="deleteButton">
+            <!-- </fieldset> -->
+          </form>
+      </div>
+    </article>
+      <nav class="flexNav">
+        <button class="home link">Go to homepage</button>
+        <button class="addEvent link">Add an event to your bucketList</button>
+        <button class="editEvent link">Edit a bucketList event</button>
+        <button class="deleteEvent link">Delete a bucketList event</button>
+      </nav>
+    </div>
+  </section>
+</div>
+<div class="column3">
+    <p>With <span class="emph">BucketList</span> you can accomplish all of the things you've always dreamed of accomplishing. 
+      Get off the couch and <span class="emph">get outside</span>. Start exploring. Start to keep track of all your aspirations,
+      but most importantly <span class="emph">follow through on them</span>. Make them happen. You wont be sorry.
+    </p>
+</div>
+<footer>
+  <p>&copy; #Sleepy Squirrel Squad ! (all rights reserved)</p>
+</footer>
+</body>
+</html>
