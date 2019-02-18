@@ -1,357 +1,549 @@
 @import '~bootstrap/scss/bootstrap';
 
+$mainfont: 'Roboto Mono', monospace;
+
+body {
+    font-family: $mainfont;
+}
+
+header {
+  height: 300px;
+}
+
 #mapid {
   height: 400px;
   width: 350px;
 }
 
-//  PYRO Fireworks
-$particles: 50;
-$width: 500;
-$height: 500;
-
-// Create the explosion...
-$box-shadow: ();
-$box-shadow2: ();
-
-@for $i from 0 through $particles {
-  $box-shadow: $box-shadow,
-    random($width) -$width / 2 + px
-    random($height) -$height / 1.2 + px
-    hsl(random(360), 100, 50);
-  $box-shadow2: $box-shadow2, 0 0 #fff;
+.btn {
+  background-color: black;
 }
 
-@mixin keyframes ($animationName) {
-  @-webkit-keyframes #{$animationName} {
-    @content
+.emph {
+  color: peru;
 }
 
-  @-moz-keyframes #{$animationName} {
-    @content
-}
-
-  @-o-keyframes #{$animationName} {
-    @content
-}
-
-  @-ms-keyframes #{$animationName} {
-    @content
-}
-
-  @keyframes #{$animationName} {
-    @content
-  }
-}
-
-@mixin animation-delay ($settings) {
-  -moz-animation-delay: $settings;
-  -webkit-animation-delay: $settings;
-  -o-animation-delay: $settings;
-  -ms-animation-delay: $settings;
-  animation-delay: $settings;
-}
-
-@mixin animation-duration ($settings) {
-  -moz-animation-duration: $settings;
-  -webkit-animation-duration: $settings;
-  -o-animation-duration: $settings;
-  -ms-animation-duration: $settings;
-  animation-duration: $settings;
-}
-
-@mixin animation ($settings) {
-  -moz-animation: $settings;
-  -webkit-animation: $settings;
-  -o-animation: $settings;
-  -ms-animation: $settings;
-  animation: $settings;
-}
-
-@mixin transform ($settings) {
-  transform: $settings;
-  -moz-transform: $settings;
-  -webkit-transform: $settings;
-  -o-transform: $settings;
-  -ms-transform: $settings;
-}
-
-.pyro > .before, .pyro > .after {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  box-shadow: $box-shadow2;
-  @include animation((1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards));
-}
-
-.pyro > .after {
-  @include animation-delay((1.25s, 1.25s, 1.25s));
-  @include animation-duration((1.25s, 1.25s, 6.25s));
-}
-
-@include keyframes(bang) {
-  to {
-    box-shadow: $box-shadow;
-  }
-}
-
-@include keyframes(gravity) {
-  to {
-    @include transform(translateY(200px));
-
-    opacity: 0;
-  }
-}
-
-@include keyframes(position) {
-
-  0%, 19.9% {
-    margin-top: 10%;
-    margin-left: 40%;
-  }
-
-  20%, 39.9% {
-    margin-top: 40%;
-    margin-left: 30%;
-  }
-
-  40%, 59.9% {
-    margin-top: 20%;
-    margin-left: 70%;
-  }
-
-  60%, 79.9% {
-    margin-top: 30%;
-    margin-left: 20%;
-  }
-
-  80%, 99.9% {
-    margin-top: 30%;
-    margin-left: 80%;
-  }
-}
-
-.video {
-  cursor: pointer;
-  color: transparent;
-  position: fixed;
-  bottom: 650px;
-  right: 8px;
-}
-
-// .animation-content {
-//   display: hidden;
+// .latNLong {
+//   padding-top: 10px;
 // }
 
-body {
-  background: url("public/images/bucketlist.png") no-repeat 25% 25% fixed;
-  background-repeat: no-repeat;
-  // background-size: 120%;
-  // display: flex;
-  justify-content: center;
-  font-family: 'Times New Roman', Times, serif;
+.title {
+  background: url('../../public/images/bucketList2.jpg') 60% 60% no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background-color: palevioletred;
-  cursor: pointer;
-
-  // PYRO SCSS
-  margin: 0;
-  padding: 0;
-  // background: #000;
-  overflow: hidden;
+  z-index: -100;
 }
 
-.squirrel {
-  margin: 0 auto;
-  width: 600px;
-  height: 600px;
-  position: relative;
+.title h1 {
+  text-align: center;
+  font-size: 90px;
+  padding-top: 80px;
 }
 
-.squirrel {
-  display: block;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #3673cf;
-  // box-shadow: inset -5px -5px 5px rgba(0,0,0,.6), 15px 15px 2px rgba(0,0,0,.04);
-  position: absolute;
-  -webkit-animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
-  -moz-animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
-  -o-animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
-  animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+.title h3 {
+  text-align: center;
+  size: 35px;
+  padding-bottom: 30px;
 }
 
-@-webkit-keyframes moveX {
-  from { left: 0; }
-  to { left: 480px; }
+nav {
+  background-color: peru;
 }
 
-@-moz-keyframes moveX {
-  from { left: 0; }
-  to { left: 480px; }
+.column {
+  text-align: center;
+  height: 550px;
+  background-color: black;
+  padding: 10px;
+  color: white;
 }
 
-@-o-keyframes moveX {
-  from { left: 0; }
-  to { left: 480px; }
+.map {
+  text-align: center;
 }
 
-@keyframes moveX {
-  from { left: 0; }
-  to { left: 480px; }
+.whereYouGo {
+  height: 125px;
 }
 
-@-webkit-keyframes moveY {
-  from { top: 0; }
-  to { top: 280px; }
+#mapid {
+  float: left;
+  width: 33.33%;
 }
 
-@-moz-keyframes moveY {
-  from { top: 0; }
-  to { top: 280px; }
+.mapExplain {
+  float: right;
+  text-align: center;
+  width: 66.66%;
+  // display: inline-block;
+  padding-top: 130px;
+  padding-bottom: 130px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 400px;
+  color: white;
 }
 
-@-o-keyframes moveY {
-  from { top: 0; }
-  to { top: 280px; }
+.art {
+  display: inline-block;
+  font-size: 20px;
 }
 
-@keyframes moveY {
-  from { top: 0; }
-  to { top: 280px; }
+.column2 {
+  height: 400px;
+  background-color: white;
 }
 
-// old ish
+.column3 {
+  height: 400px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding: 150px;
+}
+
+footer {
+  height: 225px;
+  background-color: white;
+}
+
+.bullet {
+  text-align: center;
+  display: none;
+  overflow: auto;
+  height: 400px;
+  display: inline-block;
+  font-size: 20px;
+  color: white;
+  background-color: black;
+}
+
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  text-align: center;
+  background-color: black;
+  width: 66.66%;
+}
+
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flexNav {
+  text-align: center;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: white;
+  padding: 20px;
+  align-content: center;
+  vertical-align: middle;
+  width: 33.33%;
+  background-color: peru;
+}
+
+.link {
+  background: none;
+  color: black;
+  border: none;
+  padding: 5px;
+  font-weight: bolder;
+}
+
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  // padding: 5px;
+}
+
+.hide {
+  display: none;
+}
+
+.opening {
+  display: inline-block;
+  text-align: center;
+  padding: 110px;
+}
+
+.addBl {
+  padding: 100px;
+}
+
+.editBl {
+  padding: 80px;
+}
+
+.deleteBl {
+  padding: 130px;
+}
+
+.fullBody {
+  background-color: peru;
+}
+
+footer {
+  height: 40px;
+  font-size: 15px;
+  background-color: peru;
+  text-align: left;
+}
+
+// FROM TEAM PROJECT --------------------------------------------------------------------
+// //  PYRO Fireworks
+// $particles: 50;
+// $width: 500;
+// $height: 500;
+
+// // Create the explosion...
+// $box-shadow: ();
+// $box-shadow2: ();
+
+// @for $i from 0 through $particles {
+//   $box-shadow: $box-shadow,
+//     random($width) -$width / 2 + px
+//     random($height) -$height / 1.2 + px
+//     hsl(random(360), 100, 50);
+//   $box-shadow2: $box-shadow2, 0 0 #fff;
+// }
+
+// @mixin keyframes ($animationName) {
+//   @-webkit-keyframes #{$animationName} {
+//     @content
+// }
+
+//   @-moz-keyframes #{$animationName} {
+//     @content
+// }
+
+//   @-o-keyframes #{$animationName} {
+//     @content
+// }
+
+//   @-ms-keyframes #{$animationName} {
+//     @content
+// }
+
+//   @keyframes #{$animationName} {
+//     @content
+//   }
+// }
+
+// @mixin animation-delay ($settings) {
+//   -moz-animation-delay: $settings;
+//   -webkit-animation-delay: $settings;
+//   -o-animation-delay: $settings;
+//   -ms-animation-delay: $settings;
+//   animation-delay: $settings;
+// }
+
+// @mixin animation-duration ($settings) {
+//   -moz-animation-duration: $settings;
+//   -webkit-animation-duration: $settings;
+//   -o-animation-duration: $settings;
+//   -ms-animation-duration: $settings;
+//   animation-duration: $settings;
+// }
+
+// @mixin animation ($settings) {
+//   -moz-animation: $settings;
+//   -webkit-animation: $settings;
+//   -o-animation: $settings;
+//   -ms-animation: $settings;
+//   animation: $settings;
+// }
+
+// @mixin transform ($settings) {
+//   transform: $settings;
+//   -moz-transform: $settings;
+//   -webkit-transform: $settings;
+//   -o-transform: $settings;
+//   -ms-transform: $settings;
+// }
+
+// .pyro > .before, .pyro > .after {
+//   position: absolute;
+//   width: 5px;
+//   height: 5px;
+//   border-radius: 50%;
+//   box-shadow: $box-shadow2;
+//   @include animation((1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards));
+// }
+
+// .pyro > .after {
+//   @include animation-delay((1.25s, 1.25s, 1.25s));
+//   @include animation-duration((1.25s, 1.25s, 6.25s));
+// }
+
+// @include keyframes(bang) {
+//   to {
+//     box-shadow: $box-shadow;
+//   }
+// }
+
+// @include keyframes(gravity) {
+//   to {
+//     @include transform(translateY(200px));
+
+//     opacity: 0;
+//   }
+// }
+
+// @include keyframes(position) {
+
+//   0%, 19.9% {
+//     margin-top: 10%;
+//     margin-left: 40%;
+//   }
+
+//   20%, 39.9% {
+//     margin-top: 40%;
+//     margin-left: 30%;
+//   }
+
+//   40%, 59.9% {
+//     margin-top: 20%;
+//     margin-left: 70%;
+//   }
+
+//   60%, 79.9% {
+//     margin-top: 30%;
+//     margin-left: 20%;
+//   }
+
+//   80%, 99.9% {
+//     margin-top: 30%;
+//     margin-left: 80%;
+//   }
+// }
+
+// .video {
+//   cursor: pointer;
+//   color: transparent;
+//   position: fixed;
+//   bottom: 650px;
+//   right: 8px;
+// }
+
+// // .animation-content {
+// //   display: hidden;
+// // }
+
+// body {
+//   background: url("public/images/bucketlist.png") no-repeat 25% 25% fixed;
+//   background-repeat: no-repeat;
+//   // background-size: 120%;
+//   // display: flex;
+//   justify-content: center;
+//   font-family: 'Times New Roman', Times, serif;
+//   background-size: cover;
+//   background-color: palevioletred;
+//   cursor: pointer;
+
+//   // PYRO SCSS
+//   margin: 0;
+//   padding: 0;
+//   // background: #000;
+//   overflow: hidden;
+// }
+
+// .squirrel {
+//   margin: 0 auto;
+//   width: 600px;
+//   height: 600px;
+//   position: relative;
+// }
+
+// .squirrel {
+//   display: block;
+//   width: 20px;
+//   height: 20px;
+//   border-radius: 50%;
+//   background-color: #3673cf;
+//   // box-shadow: inset -5px -5px 5px rgba(0,0,0,.6), 15px 15px 2px rgba(0,0,0,.04);
+//   position: absolute;
+//   -webkit-animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+//   -moz-animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+//   -o-animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+//   animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+// }
+
+// @-webkit-keyframes moveX {
+//   from { left: 0; }
+//   to { left: 480px; }
+// }
+
+// @-moz-keyframes moveX {
+//   from { left: 0; }
+//   to { left: 480px; }
+// }
+
+// @-o-keyframes moveX {
+//   from { left: 0; }
+//   to { left: 480px; }
+// }
+
+// @keyframes moveX {
+//   from { left: 0; }
+//   to { left: 480px; }
+// }
+
+// @-webkit-keyframes moveY {
+//   from { top: 0; }
+//   to { top: 280px; }
+// }
+
+// @-moz-keyframes moveY {
+//   from { top: 0; }
+//   to { top: 280px; }
+// }
+
+// @-o-keyframes moveY {
+//   from { top: 0; }
+//   to { top: 280px; }
+// }
+
+// @keyframes moveY {
+//   from { top: 0; }
+//   to { top: 280px; }
+// }
+
+// // old ish
+// // section {
+// //   color: transparent;
+// //   position: fixed;
+// //   bottom: 0;
+// //   right: 600px;
+// //   // border-radius: 50%;
+// // }
+
+// aside {
+//   float: left;
+//   border-radius: 50%;
+// }
+
+// .form {
+//   float: right;
+// }
+
+// .a {
+//   position: absolute;
+//   top: 340px;
+//   left: 1075px;
+// }
+
+// /* The Modal (background) */
+// .modal {
+//   border-radius: 25px;
+//   display: none; /* Hidden by default */
+//   position: fixed; /* Stay in place */
+//   left: 0;
+//   top: 0;
+//   width: 100%; /* Full width */
+//   height: 100%; /* Full height */
+//   overflow: auto; /* Enable scroll if needed */
+//   background-color: tran; /* Fallback color */
+//   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+// }
+
+// /* Modal Content/Box */
+// .modal-content {
+//   border-radius: 5px;
+//   background-color: transparent;
+//   margin: 15% auto; /* 15% from the top and centered */
+//   padding: 20px;
+//   border: 1px solid #888;
+//   width: 80%; /* Could be more or less, depending on screen size */
+// }
+
+// /* The Close Button */
+// .close {
+//   color: transparent;
+//   float: right;
+//   font-size: 28px;
+//   font-weight: bold;
+// }
+
+// .close:hover,
+// .close:focus {
+//   color: black;
+//   text-decoration: none;
+//   cursor: pointer;
+// }
+
+// footer {
+//  left: 0;
+//  bottom: 0;
+//  font-size: 1.25em;
+//  position: fixed;
+//  margin-right: 50px;
+//  color: gold;
+// }
+
+// #message {
+//   color: red;
+// }
+
+// #message2 {
+//   color: red;
+// }
+
+// #message3 {
+//   color: red;
+// }
+
+// #message4 {
+//   color: red;
+// }
+
+// #message5 {
+//   color: red;
+// }
+
+// #message6 {
+//   color: red;
+// }
+
+
+// #output {
+//   text-align: left;
+//   // background-color: rgba(189, 233, 249, 0.7);
+//   // border-style: solid;
+//   // padding-bottom: 1px;
+//   margin: 30px;
+//   color: white;
+// }
+
+// .whereYouGo {
+//   color: yellow;
+//   font-size: 1em;
+// }
+
 // section {
 //   color: transparent;
 //   position: fixed;
 //   bottom: 0;
-//   right: 600px;
-//   // border-radius: 50%;
+//   left: 600px;
 // }
 
-aside {
-  float: left;
-  border-radius: 50%;
-}
+// .snowFlake {
+//   color: transparent;
+//   border-radius: 50%;
+// }
 
-.form {
-  float: right;
-}
-
-.a {
-  position: absolute;
-  top: 340px;
-  left: 1075px;
-}
-
-/* The Modal (background) */
-.modal {
-  border-radius: 25px;
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: tran; /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  border-radius: 5px;
-  background-color: transparent;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-  color: transparent;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-footer {
- left: 0;
- bottom: 0;
- font-size: 1.25em;
- position: fixed;
- margin-right: 50px;
- color: gold;
-}
-
-#message {
-  color: red;
-}
-
-#message2 {
-  color: red;
-}
-
-#message3 {
-  color: red;
-}
-
-#message4 {
-  color: red;
-}
-
-#message5 {
-  color: red;
-}
-
-#message6 {
-  color: red;
-}
-
-
-#output {
-  text-align: left;
-  // background-color: rgba(189, 233, 249, 0.7);
-  // border-style: solid;
-  // padding-bottom: 1px;
-  margin: 30px;
-  color: white;
-}
-
-.whereYouGo {
-  color: yellow;
-  font-size: 1em;
-}
-
-section {
-  color: transparent;
-  position: fixed;
-  bottom: 0;
-  left: 600px;
-}
-
-.snowFlake {
-  color: transparent;
-  border-radius: 50%;
-}
-
-legend {
-  color: transparent;
-  position: fixed;
-  top: 500px;
-  left: 650px;
-}
+// legend {
+//   color: transparent;
+//   position: fixed;
+//   top: 500px;
+//   left: 650px;
+// }
 
 // .squirrelTwo {
 //   color: transparent;
