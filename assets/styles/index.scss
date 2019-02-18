@@ -1,5 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
 
+$mainfont: 'Roboto Mono', monospace;
+
+body {
+    font-family: $mainfont;
+}
+
 header {
   height: 300px;
 }
@@ -94,6 +100,9 @@ nav {
   height: 400px;
   background-color: black;
   color: white;
+  font-size: 20px;
+  text-align: center;
+  padding: 150px;
 }
 
 footer {
@@ -161,10 +170,30 @@ nav {
 .opening {
   display: inline-block;
   text-align: center;
+  padding: 110px;
+}
+
+.addBl {
+  padding: 100px;
+}
+
+.editBl {
+  padding: 80px;
+}
+
+.deleteBl {
+  padding: 130px;
 }
 
 .fullBody {
   background-color: peru;
+}
+
+footer {
+  height: 40px;
+  font-size: 15px;
+  background-color: peru;
+  text-align: left;
 }
 
 // FROM TEAM PROJECT --------------------------------------------------------------------

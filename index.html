@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
   crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 
   <!-- Do not add `script` tags -->
   <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
@@ -281,8 +282,8 @@
         had. With bucketList, those dreams become a reality! Keep track of all your entries, and follow through
         so you can experience <span class="emph">all that life</span> has to offer. Life is short, but <span class="emph">memories last forever</span>.
     </div>
-      <div class="addBl bullet hide">
-        <h3>Create a bucketList event</h3>
+      <div class="addBl bullet hide crud">
+        <h3><span class="emph">Create</span> a bucketList event</h3>
           <form id="bucket-list-create">
             <input type="text" name="bucketList[title]" placeholder="Where do you want to go?" class="col - 8 mx-auto" id="title">
             <br>
@@ -294,8 +295,8 @@
             <input type="submit" class="btn btn-primary" value="Create a List Item" id="addTaskButton">
           </form>
       </div>
-      <div class="editBl bullet hide">
-        <h3>Edit a bucketList event</h3>
+      <div class="editBl bullet hide crud">
+        <h3><span class="emph">Edit</span> a bucketList event</h3>
           <form id="bucket-list-update">
             <!-- <fieldset> -->
             <input type="text" name="bucketList[title]" placeholder="Change the Name of your List Item" class="col - 8 mx-auto"
@@ -312,8 +313,8 @@
             <!-- </fieldset> -->
           </form>
       </div>
-      <div class="deleteBl bullet hide">
-        <h3>Delete an Event from your bucketList</h3>
+      <div class="deleteBl bullet hide crud">
+        <h3><span class="emph">Delete</span> an Event from your bucketList</h3>
           <form id="bucket-list-delete">
             <!-- <fieldset> -->
             <input type="text" name="bucketList[id]" placeholder="Bucket List ID" id="delete-task">
@@ -333,7 +334,10 @@
   </section>
 </div>
 <div class="column3">
-  <p>Inspirational BS</p>
+    <p>With <span class="emph">BucketList</span> you can accomplish all of the things you've always dreamed of accomplishing. 
+      Get off the couch and <span class="emph">get outside</span>. Start exploring. Start to keep track of all your aspirations,
+      but most importantly <span class="emph">follow through on them</span>. Make them happen. You wont be sorry.
+    </p>
 </div>
 <footer>
   <p>&copy; #Sleepy Squirrel Squad ! (all rights reserved)</p>
